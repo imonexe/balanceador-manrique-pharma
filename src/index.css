@@ -2,14 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    border-color: oklch(0.85 0.115 82 / 0.19);
+:root {
+  /* Primitivas */
+  --navy-950: oklch(0.19 0.032 250);
+  --navy-900: oklch(0.235 0.038 249);
+  --navy-800: oklch(0.286 0.041 247);
+  --navy-700: oklch(0.36 0.045 247);
+  --cream-100: oklch(0.96 0.025 86);
+  --cream-200: oklch(0.90 0.045 84);
+  --cream-300: oklch(0.79 0.045 82);
+  --gold-500: oklch(0.66 0.075 80);
+  --gold-300: oklch(0.79 0.09 82);
+  --crimson-500: oklch(0.55 0.21 15);
+  --violet-400: oklch(0.75 0.12 310);
+  --error-400: oklch(0.77 0.14 25);
+
+  /* Semánticas */
+  --background: var(--navy-950);
+  --foreground: var(--cream-100);
+  --surface: var(--navy-800);
+  --surface-muted: var(--navy-900);
+  --text-primary: var(--cream-100);
+  --text-secondary: var(--cream-300);
+  --accent: var(--gold-500);
+  --accent-bright: var(--gold-300);
+  --danger: var(--error-400);
+
+  /* Componentes */
+  --panel-bg: oklch(0.285 0.041 247 / 0.82);
+  --field-bg: oklch(0.20 0.032 250 / 0.72);
+  --line: oklch(0.79 0.09 82 / 0.20);
+  --line-strong: oklch(0.79 0.09 82 / 0.42);
+  --focus-ring: var(--gold-300);
+  --radius: 12px;
+  font-family: 'Noto Sans Display', sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select,
+summary {
+  cursor: pointer;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--navy-950);
+  background: var(--gold-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  html,
-  body,
-  #root {
-    min-height: 100dvh;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
